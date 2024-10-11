@@ -13,6 +13,25 @@ return {
     end,
   },
 
+  {
+    'ThePrimeagen/vim-be-good',
+    cmd = "VimBeGood",
+    config = function()
+    end
+  },
+  {
+  "ThePrimeagen/harpoon",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
+  config = function()
+    -- Your Harpoon configuration here
+  end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
