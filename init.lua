@@ -88,6 +88,16 @@ vim.api.nvim_set_keymap('n', 'E', '<cmd>lua vim.diagnostic.open_float()<CR>', { 
 -- Map new increment/decrement keys
 vim.keymap.set('n', '<C-q>', '<C-a>', { noremap = true, desc = "Increment number" })
 
+-- Harpoon
+vim.api.nvim_set_keymap('n', '<leader>hh', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>1', ':lua require("harpoon.ui").nav_file(1)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>2', ':lua require("harpoon.ui").nav_file(2)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>3', ':lua require("harpoon.ui").nav_file(3)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>4', ':lua require("harpoon.ui").nav_file(4)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>5', ':lua require("harpoon.ui").nav_file(5)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>6', ':lua require("harpoon.ui").nav_file(6)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>7', ':lua require("harpoon.ui").nav_file(7)<CR>', { noremap = true, silent = true })
 end
 
 -- Call the function to set keymaps

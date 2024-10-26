@@ -2,6 +2,24 @@ return {
   defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
 
+  {
+    "nvim-telescope/telescope.nvim",
+    config = function()
+      require("telescope").setup {
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-t>"] = false -- removes the mapping for opening tabs with Telescope
+            },
+            n = {
+              ["<C-t>"] = false -- same for normal mode mappings if set
+            }
+          }
+        }
+      }
+    end
+  },
+
   ui = {
     icons = {
       ft = "",
@@ -45,3 +63,4 @@ return {
     },
   },
 }
+
