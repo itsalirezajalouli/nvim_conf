@@ -72,6 +72,62 @@ return {
         })
       end,
     },
+-- Zen mode plugin
+  {
+    "folke/twilight.nvim",
+    cmd = { "Twilight", "TwilightEnable", "TwilightDisable" },
+    opts = {
+      dimming = {
+        alpha = 0.25, -- amount of dimming
+        color = { "Normal", "#ffffff" },
+        inactive = true, -- dim inactive windows
+      },
+      context = 10, -- amount of lines we will try to show around the current line
+      treesitter = true, -- use treesitter when available for dimming
+      expand = {
+        "function",
+        "method",
+        "table",
+        "if_statement",
+      },
+    },
+    config = function(_, opts)
+      require("twilight").setup(opts)
+      -- Optional: Add keymapping
+      vim.keymap.set("n", "<leader>tz", ":Twilight<CR>", { desc = "Toggle Twilight Zen Mode" })
+    end
+  },
+  -- Alternatively, you can use the full Zen Mode plugin
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    opts = {
+      window = {
+        backdrop = 0.95, -- shade the backdrop of the Zen mode window
+        width = 90, -- width of the Zen mode window
+        height = 1, -- height of the Zen mode window
+        options = {
+          signcolumn = "no", -- disable signcolumn
+          number = true, -- disable number column
+          relativenumber = true, -- disable relative numbers
+          cursorline = false, -- disable cursorline
+          cursorcolumn = false, -- disable cursor column
+          foldcolumn = "0", -- disable fold column
+          list = false, -- disable whitespace characters
+        },
+      },
+      plugins = {
+        -- disable some global vim options (vim.o...)
+        gitsigns = { enabled = false },
+        tmux = { enabled = false },
+        kitty = { enabled = false, font = "+2" },
+      },
+    },
+    config = function(_, opts)
+      require("zen-mode").setup(opts)
+      vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { desc = "Toggle Zen Mode" })
+    end
+  }
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
