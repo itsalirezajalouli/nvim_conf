@@ -15,7 +15,7 @@ local lazy_config = require "configs.lazy"
 
 -- Set up line numbers
 vim.opt.number = true            -- Show absolute line numbers
-vim.opt.relativenumber = true    -- Show relative line numbers
+vim.opt.relativenumber = true    -- Show selative line numbers
 
 -- Set up sign column (left margin)
 vim.opt.signcolumn = 'yes'       -- Always show the sign column, can be 'auto' if you prefer
@@ -112,6 +112,8 @@ local function set_keymaps()
   vim.keymap.set("v", "<leader>ms", ":w !octave<CR>", { desc = "Send selection to Octave" })
   vim.keymap.set("n", "<leader>mc", "0i%% <ESC>", { desc = "Comment line in MATLAB" })
   vim.keymap.set("n", "<leader>md", ":!octave --eval \"help <cword>\"<CR>", { desc = "Show Octave documentation" })
+  -- Zen Mode
+  vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { desc = "Toggle Zen Mode" })
 end
 
 -- MATLAB/Octave specific settings
@@ -136,3 +138,4 @@ end
 -- Call the setup functions
 setup_matlab()
 set_keymaps()
+
