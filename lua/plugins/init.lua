@@ -33,9 +33,7 @@ return {
     lazy = false,
   },
   {
-      "neovim/nvim-lspconfig",
-      dependencies = {
-        "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig", dependencies = { "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
       },
       config = function()
@@ -211,7 +209,15 @@ return {
         end,
       })
     end,
-  }
+  },
+
+{
+    "bfredl/nvim-ipy",
+    config = function()
+        vim.g.ipy_enable_autoimport = 1
+    end
+}
+
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {

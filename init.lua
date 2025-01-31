@@ -31,7 +31,6 @@ require("lazy").setup({
     branch = "v2.5",
     import = "nvchad.plugins",
   },
-
   -- Add MATLAB/Octave support plugins
   {
     "vim-scripts/matlab.vim",
@@ -116,6 +115,12 @@ local function set_keymaps()
   vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { desc = "Toggle Zen Mode" })
 end
 
+-- Move text left and right
+vim.api.nvim_set_keymap('n', '<C-h>', '<<', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-l>', '>>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<C-h>', '<gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<C-l>', '>gv', { noremap = true, silent = true })
+
 -- MATLAB/Octave specific settings
 local function setup_matlab()
   local matlab_group = vim.api.nvim_create_augroup("MatlabConfig", { clear = true })
@@ -134,6 +139,14 @@ local function setup_matlab()
     end,
   })
 end
+
+vim.filetype.add({
+    extension = {
+        ipynb = "ipynb",
+    },
+})
+
+vim.g.snacks_animate = false
 
 -- Call the setup functions
 setup_matlab()
